@@ -1,1 +1,9 @@
-/* Empty. Add your own CSS if you like */
+h1 {
+  text-align: center;
+  font-size: 35px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 65px;
+}
