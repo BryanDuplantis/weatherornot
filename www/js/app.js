@@ -6,7 +6,8 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic',
   'starter.controllers',
-  'won.search'
+  'won.search',
+  'won.weather'
   ])
 
 .run(function($ionicPlatform) {
@@ -43,6 +44,16 @@ angular.module('starter', ['ionic',
     }
   })
 
+   .state('app.weather', {
+    url: "/weather/:city/:lat/:long",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/weather/weather.html",
+        controller: 'WeatherCtrl'
+      }
+    }
+  })
+
   .state('app.browse', {
     url: "/browse",
     views: {
@@ -51,6 +62,7 @@ angular.module('starter', ['ionic',
       }
     }
   })
+
     .state('app.playlists', {
       url: "/playlists",
       views: {

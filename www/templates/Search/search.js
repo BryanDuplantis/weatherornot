@@ -1,6 +1,4 @@
 angular.module('won.search', [])
-
-angular.module('starter')
   .controller('SearchCtrl', function($scope, $http) {
 
   $scope.queryChanged = _.debounce(function () {
