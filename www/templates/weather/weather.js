@@ -1,6 +1,6 @@
 angular.module('won.weather', [])
 
-  .controller('WeatherCtrl', function (weather, $scope, $stateParams, $ionicLoading) {
+  .controller('WeatherCtrl', function (settings, weather, $scope, $stateParams, $ionicLoading) {
 
     $scope.city = $stateParams.city;
 
@@ -13,8 +13,9 @@ angular.module('won.weather', [])
       .success(function (data) {
         setTimeout(function () {
         $scope.temp = data.currently.apparentTemperature;
+        $scope.newTemp = Math.round($scope.temp);
         $ionicLoading.hide();
-      }, 2000);
+      }, 1000);
     });
   })
 
