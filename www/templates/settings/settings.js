@@ -1,13 +1,19 @@
 angular.module('won.settings', [])
 
   .controller('SettingsCtrl', function (settings, $scope, $ionicLoading) {
-    $scope.scale = settings.scale;// settings.scale;
-    $scope.precision = settings.precision; // settings.precision;
+    $scope.scale = settings.scale;
+    $scope.precision = settings.precision;
 
     $scope.scales = [
      {symbol: 'F', name: 'Fahrenheit'},
      {symbol: 'C', name: 'Celcuis'},
      {symbol: 'K', name: 'Kelvin'},
+     {symbol: 'Ra', name: 'Rankine'},
+     {symbol: 'D', name: 'Delisle'},
+     {symbol: 'N', name: 'Newton'},
+     {symbol: 'Ré', name: 'Réaumur'},
+     {symbol: 'Rø', name: 'Rømer'},
+     {symbol: 'X', name: 'Random'}
     ];
 
     $scope.$watch('precision', function () {
@@ -40,6 +46,22 @@ angular.module('won.settings', [])
       },
       set precision(p) {
         localStorage.setItem('precision', p);
+      }
+    };
+  })
+
+  .factory('location', function () {
+    return {
+      get favorites() {
+        var json = localStorage.getItem('favorites');
+        return JSON.parse(json);
+      },
+      set favorites(f) {
+        var json = JSON.stringify(f);
+        localStorage.setItem('favorites', json);
+      },
+      addFavorite: function (f) {
+        this.favorites = this.favorites.concat(f);
       }
     };
   });

@@ -7,7 +7,7 @@ angular.module('won.weather', [])
     $scope.precision = settings.precision;
 
     $ionicLoading.show({
-      template: '<img src="/img/loading.gif"><h1>Loading...</h1>'
+      template: '<img src="/img/Loading.png">'
     });
 
     weather
